@@ -1,12 +1,12 @@
 {
-  "name": "@lima/pwa-studio-template-typescript",
+  "name": "@devgfnl/pwa-studio-template-typescript",
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.0.2",
-  "description": "A new project based on @magento/venia-concept",
+  "version": "1.0.0",
+  "description": "PWA Studio TypeScript template to help you quickly set up a PWA Studio project using TypeScript.",
   "author": "GabrielFNLima <gabrielfnlima@gmail.com>",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "scripts": {
     "buildpack": "buildpack",
     "prebuild": "yarn run schema:codegen && yarn run generate:type:cssmodule",
