@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+        "target": "ES2016",
+        "module": "ESNext",
+        "moduleResolution": "node",
+        "allowJs": true,  // Allow JavaScript files
+        "strict": true,
+        "esModuleInterop": true,
+        "jsx": "react",
+        "skipLibCheck": true,
+        "plugins": [
+            {
+                "name": "typescript-plugin-css-modules"
+            }
+        ],
+        "types": ["node"]
+    },
+    "include": [
+        "src/**/*",
+        "global.d.ts"  // Ensure custom declarations are included
+    ],
+    "exclude": [
+        "node_modules",
+        "src/talons/**/*.generated.ts",
+        "src/__generated__"
+    ]
+}
