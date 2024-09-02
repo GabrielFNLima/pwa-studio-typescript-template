@@ -20,10 +20,10 @@ jobs:
       - name: Cache Node.js modules
         uses: actions/cache@v3
         with:
-          path: node_modules  # Diretório para cachear
-          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}  # Chave do cache baseada no sistema operacional e hash do arquivo package-lock.json
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node-  # Chave de restauração, caso o cache exato não seja encontrado
+            ${{ runner.os }}-node-
 
       - name: Create .env file
         run: echo "${{ secrets.ENV_CONTENT }}" > .env
