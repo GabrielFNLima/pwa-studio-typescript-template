@@ -1,0 +1,27 @@
+name: Node.js Build
+
+on:
+  workflow_dispatch:  # Trigger manual
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Create .env file
+        run: echo "${{ secrets.ENV_CONTENT }}" > .env
+
+      - name: Install dependencies 🔧
+        run: npm i --legacy-peer-deps
+
+      - name: Check if build is not broken 🔧
+        run: npm run build
