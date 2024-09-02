@@ -18,8 +18,6 @@ const origin = isServer
 // on the server, components add styles to this set and we render them in bulk
 const styles = new Set();
 
-const message: string = 9;
-
 //@ts-ignore
 const configureLinks = links => [...links.values()];
 
