@@ -17,8 +17,22 @@ jobs:
           node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
+      - name: Cache Node.js modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Create .env file
+        run: echo "${{ secrets.ENV_CONTENT }}" > .env
+
       - name: Install dependencies 🔧
         run: npm i --legacy-peer-deps
+
+      - name: Check if build is not broken 🔧
+        run: npm run build
 
       - name: Publish package on NPM 📦
         run: npm publish --access=public --legacy-peer-deps
