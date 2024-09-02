@@ -1,4 +1,4 @@
-name: Node.js Build
+name: Test Build
 
 on:
   workflow_dispatch:  # Trigger manual
@@ -16,6 +16,14 @@ jobs:
         with:
           node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
+
+      - name: Cache Node.js modules
+            uses: actions/cache@v3
+            with:
+              path: node_modules  # Diretório para cachear
+              key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+              restore-keys: |
+                ${{ runner.os }}-node-
 
       - name: Create .env file
         run: echo "${{ secrets.ENV_CONTENT }}" > .env
