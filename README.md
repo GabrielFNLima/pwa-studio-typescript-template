@@ -32,7 +32,7 @@ To use this template, follow these steps. This example uses Yarn to create a new
 
     When prompted the question to specify the template, copy and paste the following template package:
     ```
-    @devgfnl/pwa-studio-typescript-template
+    @devgfnl/pwa-studio-template-typescript
     ```
 
     Your terminal should look something like this:
